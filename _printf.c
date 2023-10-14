@@ -28,8 +28,4 @@ int _printf(const char *format, ...)
                         write(1, &format[i], 1);
                         printed_chars++;
                 }
-
-
-
-
 } 
