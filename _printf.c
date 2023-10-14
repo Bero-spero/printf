@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	int i, count = 0, printed_chars = 0;
 	
 	va_list list;
-	char buffer;
+	char new_buffer[BUFF_SIZE];
 
 	if (format == NULL)
 		return (-1);
@@ -22,9 +22,9 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			buffer[buff_ind++] = format[i];
-			if (buff_ind == BUFF_SIZE)
-				print_puffer(buffer, &buff_ind);
+			new_buffer[new_buff_ind++] = format[i];
+			if (new_buff_ind == BUFF_SIZE)
+				print_puffer(new_buffer, &new_buff_ind);
 			write(1, &format[i], 1);
 			printed_chars++;
 		}
