@@ -6,5 +6,6 @@
 
 
 int _printf(const char *format, ...);
+void print_buffer(char *new_buffer, int *new_buff_ind);
 
 #endif
