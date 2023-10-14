@@ -6,6 +6,7 @@
 
 
 int _printf(const char *format, ...);
-void print_buffer(char *new_buffer, int *new_buff_ind);
+void print_buffer(char *new_buffer, int *new_buff_ind)
+#define BUFF_SIZE 1024;
 
 #endif
