@@ -23,9 +23,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			new_buffer[new_buff_ind++] = format[i];
-			if (new_buff_ind == BUFF_SIZE)
-				print_buffer(new_buffer, &new_buff_ind);
+			_putchar(format[i]);
 			printed_chars++;
 		}
 		else

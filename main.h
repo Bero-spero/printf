@@ -6,6 +6,7 @@
 #include <unistd.h>
 #define BUFF_SIZE (1024)
 
+void _putchar(char c);
 int _printf(const char *format, ...);
 va_list list;
 print_buffer(new_buffer, &new_buff_ind);
