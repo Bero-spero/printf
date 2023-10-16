@@ -26,17 +26,10 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			printed_chars++;
 		}
-		else
-		{
-			print_buffer(new_buffer, &new_buff_ind);
-			if (count == -1)
-				return (-1);
-			printed_chars += count;
-		}
 	}
-	print_buffer(new_buffer, &new_buff_ind);
-	va_end(list);
-	return (printed_chars);
+		print_buffer(new_buffer, &new_buff_ind);
+		va_end(list);
+		return (printed_chars);
 }
 
 /**
