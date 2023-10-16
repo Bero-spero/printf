@@ -7,14 +7,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, count = 0, printed_chars = 0;
+	int i, h, count = 0, printed_chars = 0;
 	va_list list;
 
 	if (format == NULL)
 		return(-1);
 	va_start(list, format);
 
-	for(i = 0, format[i] != '\0', i++)
+	for(i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
@@ -23,23 +23,26 @@ int _printf(const char *format, ...)
 		}
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == 'c')
+			i++;
+
+			if (format[i] == 'c')
 			{
 				char c = va_arg(list, int);
 				_putchar(c);
 				printed_chars++;
 			}
-			if (format[i + 1] == 's')
+			if (format[i] == 's')
 			{
 				char* str = va_arg(list, char*);
-				for(i = 0, str[i] != '\0', i++)
+				for (h = 0; str[h] != '\0'; h++)
 				{
-					_putchar(str[i]);
+					_putchar(str[h]);
+					printed_chars++;
 				}
 			}
-			if (format[i + 1] == '%')
+			if (format[i] == '%')
 			{
-				_putchar("%%");
+				_putchar('%');
 			}
 		}
 		else
