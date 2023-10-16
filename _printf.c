@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			handle_spc(format[i], list, &printed_chars);
-
+		}
 		else
 		{
 			_putchar(format[i]);
