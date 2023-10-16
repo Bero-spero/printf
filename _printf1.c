@@ -16,11 +16,6 @@ int _printf(const char *format, ...)
 
 	for(i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			i++;
-		}
 		if (format[i] == '%')
 		{
 			i++;
@@ -43,12 +38,13 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 			{
 				_putchar('%');
+				printed_chars++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
-			count++;
+			printed_chars++;
 		}
 	}
 	va_end(list);

@@ -7,13 +7,23 @@
  */
 int main(void)
 {
-_printf("hello world\n");
-printf("hello world\n");
-_printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-_printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-_printf("Percent:[%%]\n");
-printf("Percent:[%%]\n");
+int len;
+int len1;
+len= _printf("hello world\n");
+len1= printf("hello world\n");
+printf("got: %d, expected: %d\n",len , len1);
+
+len= _printf("Character:[%c]\n", 'H');
+len1= printf("Character:[%c]\n", 'H');
+printf("got: %d, expected: %d\n",len , len1);
+
+len= _printf("String:[%s]\n", "I am a string !");
+len1 = printf("String:[%s]\n", "I am a string !");
+printf("got: %d, expected: %d\n",len , len1);
+
+len=  _printf("Percent:[%%]\n");
+len1= printf("Percent:[%%]\n");
+printf("got: %d, expected: %d\n",len , len1);
+
 return (0);
 }
