@@ -1,5 +1,34 @@
 #include "main.h"
 
+void handle_spc(char format, va_list list, int *printed_chars)
+{
+        char c, *str;
+        int h;
+
+	if (format == 'c')
+	{
+		c = (char)va_arg(list, int);
+		_putchar(c);
+		*printed_chars += 1;
+	}
+	else if (format == 's')
+	{
+	        str = va_arg(list, char*);
+                if (str == NULL)
+                        str = "(null)";
+		for (h = 0; str[h] != '\0'; h++)
+		{
+			_putchar(str[h]);
+			*printed_chars += 1;
+		}
+	}
+	else if (format == '%')
+	{
+		_putchar('%');
+		*printed_chars += 1;
+	}
+}
+
 /**
  * _printf - printf function.
  * @format: format.
@@ -7,7 +36,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, h, printed_chars = 0;
+	int i, printed_chars = 0;
 	va_list list;
 
 	if (format == NULL)
@@ -19,29 +48,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-
-			if (format[i] == 'c')
-			{
-				char c = va_arg(list, int);
-
-				_putchar(c);
-				printed_chars++;
-			}
-			if (format[i] == 's')
-			{
-				char *str = va_arg(list, char*);
-
-				for (h = 0; str[h] != '\0'; h++)
-				{
-					_putchar(str[h]);
-					printed_chars++;
-				}
-			}
-			if (format[i] == '%')
-			{
-				_putchar('%');
-				printed_chars++;
-			}
+                        handle_spc(format[i], list, &printed_chars);
 		}
 		else
 		{
