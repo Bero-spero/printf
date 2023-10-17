@@ -25,7 +25,7 @@ void print_number(int num, int *printed_chars)
 	while (buff[i] != '\0')
 	{
 		_putchar(buff[i++]);
-		printed_chars += 1;
+		*printed_chars += 1;
 	}
 }
 

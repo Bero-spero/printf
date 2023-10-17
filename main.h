@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <limits.h>
 #define BUFF_SIZE (1024)
 
 void _putchar(char c);
