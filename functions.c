@@ -1,42 +1,29 @@
-#include<stdio.h>
-#include<stdarg.h>
+#include <stdio.h>
+#include <stdarg.h>
 
-void handle_int(int value) 
-{
-	 printf("Integer value: %d\n", value);
-}
-
-void printf(const char* format, ...) 
+void my_printf(const char* format, ...) 
 {
 	va_list args;
 	va_start(args, format);
-
 	for (int i = 0; format[i] != '\0'; i++) 
 	{
-		if (format[i] == '%') 
+		if (format[i] == '%' && format[i+1] == 'd') 
 		{
+		int value = va_arg(args, int);
+		printf("%d", value);
 		i++;
-		switch (format[i]) 
-		{
-			case 'd':
-			case 'i':
-		handle_int(va_arg(args, int));
-			break;
-			default:
-		printf("Invalid format specifier\n");
-			break;
 		}
-		}	
-		else 
+		else if (format[i] == '%' && format[i+1] == 'i') 
 		{
-			printf("%c", format[i]);
+		int value = va_arg(args, int);
+		printf("%i", value);
+		i++;
+		}
+		else
+		{
+			_putchar(format[i]);
 		}
 	}
 	va_end(args);
 }
 
-int main() 
-{
-	my_printf("Number: %d\n", 10);
-	return 0;
-}
