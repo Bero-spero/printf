@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '\0')
+				return (printed_chars);
 			handle_spc(format[i], list, &printed_chars);
 		}
 		else

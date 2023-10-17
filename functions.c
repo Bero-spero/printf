@@ -37,8 +37,8 @@ void print_number(int num, int *printed_chars)
  */
 void handle_spc2(char format, va_list list, int *printed_chars)
 {
-	int num, i;
-	char str;
+	int num, i = 0;
+	char *str;
 	if (format == 'd' || format == 'i')
 	{
 		num = va_arg(list, int);
@@ -49,12 +49,12 @@ void handle_spc2(char format, va_list list, int *printed_chars)
 		str = va_arg(list, char*);
 		if (str == NULL)
 			str = "(llun)";
-		while (str[i] != ('\0')
+		while (str[i] != ('\0'))
 			i++;
 		i--;
 		while (i >= 0)
 		{
-			_putchar(str[i--];
+			_putchar(str[i--]);
 			*printed_chars += 1;
 		}
 	}
