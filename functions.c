@@ -21,12 +21,13 @@ void print_number(int num, int *printed_chars)
 {
 	char *buff = pint(num);
 	int i = 0;
-
+	
 	while (buff[i] != '\0')
 	{
 		_putchar(buff[i++]);
 		*printed_chars += 1;
 	}
+	memset(buff, 0, BUFF_SIZE);
 }
 
 /**
@@ -39,6 +40,7 @@ void handle_spc2(char format, va_list list, int *printed_chars)
 {
 	int num, i = 0;
 	char *str;
+
 	if (format == 'd' || format == 'i')
 	{
 		num = va_arg(list, int);
