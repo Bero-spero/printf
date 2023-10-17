@@ -1,23 +1,34 @@
-#include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
 
-void printf(const char* format, ...) 
+/**
+ * _printf - printf function
+ * @format: format
+ *
+ * Return: Always 0
+ */
+int _printf(const char *format, ...)
 {
+	int i;
+	int count = 0;
 	va_list args;
+
 	va_start(args, format);
-	for (int i = 0; format[i] != '\0'; i++) 
+
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == '%' && format[i+1] == 'd') 
+		if (format[i] == '%' && format[i++] == 'd')
 		{
-		int value = va_arg(args, int);
-		printf("%d", value);
-		i++;
+			int value = va_arg(args, int);
+
+			_putchar('d');
+			i++;
 		}
-		else if (format[i] == '%' && format[i+1] == 'i') 
+		else if (format[i] == '%' && format[i++] == 'i')
 		{
-		int value = va_arg(args, int);
-		printf("%i", value);
-		i++;
+			int value = va_arg(args, int);
+
+			_putchar('i');
+			i++;
 		}
 		else
 		{
@@ -25,5 +36,5 @@ void printf(const char* format, ...)
 		}
 	}
 	va_end(args);
+	return (0);
 }
-
