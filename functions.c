@@ -11,3 +11,20 @@ char *pint(int n)
 	sprintf(buff, "%d", n);
 	return (buff);
 }
+
+/**
+ * print_number - printing numbers
+ * @num: number .
+ * @printed_chars: printed chars.
+ */
+void print_number(int num, int *printed_chars)
+{
+	char *buff = pint(num);
+	int i = 0;
+
+	while (buff[i] != '\0')
+	{
+		_putchar(buff[i++]);
+		printed_chars += 1;
+	}
+}
