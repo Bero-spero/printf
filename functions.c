@@ -28,3 +28,20 @@ void print_number(int num, int *printed_chars)
 		printed_chars += 1;
 	}
 }
+
+/**
+ * handle_spc2 - handling specifier charctar
+ * @list:the location of charcter
+ * @printed_chars:Return value
+ * @format:format.
+ */
+void handle_spc2(char format, va_list list, int *printed_chars)
+{
+	int num;
+
+	if (format == 'd' || format == 'i')
+	{
+		num = va_arg(list, int);
+		print_number(num, printed_chars);
+	}
+}
