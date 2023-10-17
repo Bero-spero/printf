@@ -45,3 +45,41 @@ void handle_spc2(char format, va_list list, int *printed_chars)
 		print_number(num, printed_chars);
 	}
 }
+
+/**
+ *handle_spc - handling specifier charctar
+ *@list:the location of charcter
+ *@printed_chars:Return value
+ *@format:format.
+ *Return:written charctars
+ */
+void handle_spc(char format, va_list list, int *printed_chars)
+{
+	char c, *str;
+	int h;
+
+	if (format == 'c')
+	{
+		c = (char)va_arg(list, int);
+		_putchar(c);
+		*printed_chars += 1;
+	}
+	else if (format == 's')
+	{
+		str = va_arg(list, char*);
+		if (str == NULL)
+			str = "(null)";
+		for (h = 0; str[h] != '\0'; h++)
+		{
+			_putchar(str[h]);
+			*printed_chars += 1;
+		}
+	}
+	else if (format == '%')
+	{
+		_putchar('%');
+		*printed_chars += 1;
+	}
+	else
+		handle_spc2(format, list, printed_chars);
+}
