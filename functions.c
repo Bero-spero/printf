@@ -44,6 +44,21 @@ void handle_spc2(char format, va_list list, int *printed_chars)
 		num = va_arg(list, int);
 		print_number(num, printed_chars);
 	}
+	else if (format == 'r')
+	{
+		str = va_arg(list, char*);
+		if (str == NULL)
+			str = "(llun)";
+		while (str[i] != ('\0')
+			i++;
+		i--;
+		while (i >= 0)
+		{
+			_putchar(str[i--];
+			*printed_chars += 1;
+		}
+	}
+
 }
 
 /**
