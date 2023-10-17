@@ -8,6 +8,8 @@
 
 void _putchar(char c);
 int _printf(const char *format, ...);
-void print_buffer(char *new_buffer, int *new_buff_ind);
-
+void handle_spc(char format, va_list list, int *printed_chars);
+char *pint(int n);
+void print_number(int num, int *printed_chars);
+void handle_spc2(char format, va_list list, int *printed_chars);
 #endif

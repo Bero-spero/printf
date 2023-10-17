@@ -1,40 +1,4 @@
 #include "main.h"
-/**
- * handle_spc - handling  specifier charctar
- * @list: the location of charcter
- * @printed_chars: Return value
- * @format: format.
- * Return: written charctars
- */
-
-void handle_spc(char format, va_list list, int *printed_chars)
-{
-	char c, *str;
-	int h;
-
-	if (format == 'c')
-	{
-		c = (char)va_arg(list, int);
-		_putchar(c);
-		*printed_chars += 1;
-	}
-	else if (format == 's')
-	{
-		str = va_arg(list, char*);
-		if (str == NULL)
-			str = "(null)";
-		for (h = 0; str[h] != '\0'; h++)
-		{
-			_putchar(str[h]);
-			*printed_chars += 1;
-		}
-	}
-	else if (format == '%')
-	{
-		_putchar('%');
-		*printed_chars += 1;
-	}
-}
 
 /**
  * _printf - printf function.
@@ -59,6 +23,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+
 			_putchar(format[i]);
 			printed_chars++;
 		}
